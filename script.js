@@ -3,8 +3,6 @@ const BtnJogar = document.getElementById('iniciarJogo');
 const CorPersonagem = document.getElementById("corPersonagem");
 const NomePersonagem = document.getElementById("nomePersonagem");
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyAZUjhUzZXxCnPvQZ9e9XXPdEWJwD302Sk",
   storageBucket: "rouba-amizades.appspot.com",
@@ -486,4 +484,17 @@ document.addEventListener('keyup', function (e) {
   if (e.key.toLowerCase() === "s") setas.ArrowDown = false;
   if (e.key.toLowerCase() === "a") setas.ArrowLeft = false;
   if (e.key.toLowerCase() === "d") setas.ArrowRight = false;
+});
+
+
+document.addEventListener('wheel', function(event) {
+  if (event.ctrlKey) {
+    event.preventDefault();
+  }
+}, { passive: false }); 
+
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && (e.key === "+" || e.key === "-" || e.key === "=")) {
+    e.preventDefault();
+  }
 });
